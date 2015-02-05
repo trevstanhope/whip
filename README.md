@@ -1,5 +1,5 @@
 # Whip
-Whip is a managing tool for handling multiple controller slaves.
+Whip is a managing tool for handling multiple micro-controller units.
 
 ## Dependencies
 * pySerial

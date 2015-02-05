@@ -12,9 +12,9 @@ class whip:
         self.slaves = {}
 
     # Load a controllers configuration file
-    def load(self, configfile='default.cfg'):
+    def load(self, configfile='default.cfg.txt'):
         config = open(os.path.abspath(configfile), 'r')
-        self.slaves = ast.literal_eval(config)
+        self.slaves = ast.literal_eval(config.read())
         
     # Connect controller
     def connect(self, name='temp', baud='9600', dev='COM5'):
@@ -45,6 +45,13 @@ class whip:
                 return None
         else:
             raise Exception('Unknown controller')
+
+    # List all slaves
+    def slave(self):
+        temp = []
+        for name in self.slaves:
+            temp.append(name)
+        return temp
 
     # List commands of a controller
     def commands(self, name='temp'):
